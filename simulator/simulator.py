@@ -12,7 +12,7 @@ load_dotenv()
 
 # Todo: Configuration
 WS_URL = os.getenv("WS_URL", "ws://localhost:8000/ws/ingest")
-INTERVAL = int(os.getenv("INTERVAL_SECONDS", "60"))
+INTERVAL = int(os.getenv("INTERVAL_SECONDS", "36"))
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
 logging.basicConfig(

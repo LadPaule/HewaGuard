@@ -25,5 +25,12 @@ services:
       db:
         condition: service_healthy
 
+  simulator:
+    build: ./simulator
+    env_file:
+      - ./simulator/.env
+    depends_on:
+      - backend
+
 volumes:
   postgres_data:

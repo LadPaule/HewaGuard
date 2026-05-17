@@ -20,7 +20,7 @@ async def websocket_ingest(websocket: WebSocket):
             raw_data = await websocket.receive_text()
             logger.debug(f"Received: {raw_data}")
 
-            # Split line: DEVICE_ID,millis,gas,temp,status
+            
             parts = raw_data.strip().split(",")
             if len(parts) != 5:
                 await websocket.send_text("ERROR: Expected 5 fields (DEVICE_ID,millis,gas,temp,status)")
@@ -29,9 +29,9 @@ async def websocket_ingest(websocket: WebSocket):
             device_id, millis_str, gas_str, temp_str, status_str = parts
 
             try:
-                # We ignore millis and use current server time
+                
                 timestamp = datetime.now(timezone.utc)
-                gas_value = float(gas_str)          # gasValue is integer, float is fine
+                gas_value = float(gas_str)          
                 temperature = float(temp_str)
                 status = StatusEnum(status_str.strip())
             except (ValueError, KeyError) as e:

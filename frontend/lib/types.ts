@@ -7,14 +7,13 @@ export interface Device {
 
 export interface SensorReading {
   id: number;
-  device_id: number;  // FK, but we'll resolve to device_id string later
+  device_id: number;
   timestamp: string;
   gas_value: number;
   temperature: number;
   status: "SAFE" | "MODERATE" | "DANGEROUS";
-  device?: Device;  // if joined
+  device?: Device; 
 }
-
 export interface Alert {
   id: number;
   device_id: number;

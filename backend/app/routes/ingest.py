@@ -11,8 +11,8 @@ router = APIRouter(tags=["ingest"])
 @router.post("/sensor-data", response_model=SensorDataResponse, status_code=status.HTTP_201_CREATED)
 async def ingest_sensor_data(payload: SensorDataCreate, db: AsyncSession = Depends(get_db)):
     sensor_data = await create_sensor_data(db, payload)
-    # Trigger alert if DANGEROUS
+    
     if payload.status == StatusEnum.DANGEROUS:
-        # In production, use BackgroundTasks; here we call directly for simplicity
+        
         await create_alert_service(db, sensor_data)
     return sensor_data

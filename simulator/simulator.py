@@ -23,12 +23,11 @@ logger = logging.getLogger("simulator")
 
 # Todo: Device definitions: base gas, base temp, location
 DEVICES = [
-    {"id": "HG-PK-01", "base_gas": 200, "base_temp": 26.0, "gas_offset": 250, "temp_offset": 3.6},
-    {"id": "HG-MKT-01", "base_gas": 400, "base_temp": 29.0, "gas_offset": 400, "temp_offset": 1.8},
-    {"id": "HG-UNI-01", "base_gas": 550, "base_temp": 24.0, "gas_offset": 50, "temp_offset": -5.0},
-    {"id": "HG-HM-01", "base_gas": 700, "base_temp": 31.0, "gas_offset": -75, "temp_offset": -2.5},
+    {"id": "HG-HM-01", "base_gas": 100, "base_temp": 21.0, "gas_offset": 50, "temp_offset": 3.0},
+    {"id": "HG-UNI-01", "base_gas": 300, "base_temp": 22.0, "gas_offset": 100, "temp_offset": 2.5},
+    {"id": "HG-MKT-01", "base_gas": 600, "base_temp": 23.0, "gas_offset": 100, "temp_offset": 5.0},
+    {"id": "HG-PK-01", "base_gas": 500, "base_temp": 22.5, "gas_offset": 100, "temp_offset": 3.5},
 ]
-
 def classify_status(gas_value):
     if gas_value < 300:
         return "SAFE"
